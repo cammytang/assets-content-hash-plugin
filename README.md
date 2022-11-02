@@ -61,3 +61,8 @@ Required. string or string array. Asset file path.
 #### `html`
 
 Optional. `index.html` by default.
+
+### Dependency
+```html
+loader-utils 
+```
