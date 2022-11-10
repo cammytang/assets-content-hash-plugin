@@ -1,8 +1,8 @@
 const path = require('path');
 const loaderUtils = require('loader-utils');
 
-/*
-input param
+/**
+@param
 {
   file: string|array; // filepath, like 'config.js'
   hasInjectToHtml?: boolean; // default to be true. if false, plugin can inject the files to html.
