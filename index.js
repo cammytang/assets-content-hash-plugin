@@ -93,7 +93,10 @@ class BuildHashPlugin {
 				// Step 1: replace filename in index.html
 				if (this.options.hasInjectToHtml) {
 					let indexHtml = compiler.outputFileSystem.readFileSync(indexFile, 'utf8');
-					indexHtml = indexHtml.replace(filename, newFilename); //TODO use filepath to check
+					if (indexHtml.indexOf(filepath) > -1) {
+						const newFilepath = filepath.replace(filename, newFilename);
+						indexHtml = indexHtml.replace(filepath, newFilepath);
+					}
 					compiler.outputFileSystem.writeFileSync(indexFile, indexHtml, callback);
 				}
 				// Step 2: rename filename
