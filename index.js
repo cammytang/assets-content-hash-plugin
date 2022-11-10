@@ -87,8 +87,9 @@ class BuildHashPlugin {
 
 				const buffer = compiler.outputFileSystem.readFileSync(staticFile, 'utf8');
 				const contentHash = loaderUtils.getHashDigest(buffer);
+				const contentHash8 = contentHash.substring(0,8);
 
-				const newFilename = this.generateNewFilename(filename, contentHash);
+				const newFilename = this.generateNewFilename(filename, contentHash8);
 				// Step 1: replace filename in index.html
 				if (this.options.hasInjectToHtml) {
 					let indexHtml = compiler.outputFileSystem.readFileSync(indexFile, 'utf8');
