@@ -43,11 +43,14 @@ In your webpack config include the plug-in. And add it to your config:
 ```js
 import AssetsContentHashPlugin from 'assets-content-hash-plugin';
 // ...
-module.exports = {
+module.exports =function (webpackEnv) {
+	const isEnvProduction = webpackEnv === 'production';
     // ....
-    plugins: [new AssetsContentHashPlugin({
-      file:['config.js','common.css']
-    })]
+	plugins: [
+		isEnvProduction && new AssetsContentHashPlugin({
+			file: ['config.js', 'common.css']
+		})
+	]
 }
 ```
 
