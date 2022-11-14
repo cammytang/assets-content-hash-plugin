@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.npm_token }}
-      - run: git config --global user.name 'cammy.tang'
+          token: ${{ secrets.GH_TOKEN }}
+      - run: git config --global user.name 'cammytang'
       - run: git config --global user.email 'cammy.tang@endeavorstreaming.com'
       - run: npm version patch -m "[RELEASE] %s"
       - run: git push
