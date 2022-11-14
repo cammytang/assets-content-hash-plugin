@@ -1,6 +1,6 @@
 {
   "name": "assets-content-hash-plugin",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "index.js",
   "repository": "https://github.com/cammytang/assets-content-hash-plugin.git",
   "author": "Cammy Tang",
