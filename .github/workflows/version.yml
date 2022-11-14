@@ -15,5 +15,17 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
       - run: git config --global user.name 'cammytang'
       - run: git config --global user.email 'cammy.tang@endeavorstreaming.com'
-      - run: npm version patch -m "[RELEASE] %s"
+
+      - name: release patch
+        if: "startsWith(github.event.head_commit.message, 'fix: ')"
+        run: npm version patch -m "[RELEASE] %s"
+
+      - name: release minor
+        if: "startsWith(github.event.head_commit.message, 'feat: ')"
+        run: npm version minor -m "[RELEASE] %s"
+
+      - name: release major
+        if: "startsWith(github.event.head_commit.message, 'feat!: ')"
+        run: npm version major -m "[RELEASE] %s"
+
       - run: git push
